@@ -7,8 +7,11 @@ import {
 	isRouteErrorResponse,
 } from "react-router";
 
+import React from "react";
 import type { Route } from "./+types/root";
 import "./app.css";
+import { ThemeProvider } from "./context";
+import { cn } from "./utils/css";
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body>
+			<body className={cn("w-full h-screen")}>
 				{children}
 				<ScrollRestoration />
 				<Scripts />
@@ -42,7 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-	return <Outlet />;
+	return (
+		<ThemeProvider>
+			<Outlet />
+		</ThemeProvider>
+	);
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

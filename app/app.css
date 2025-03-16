@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-	--font-sans: "Inter", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-sans: "Open Sans", "Noto Sans JP", "Inter", ui-sans-serif, system-ui,
+		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 }
 
 html,
@@ -21,7 +22,7 @@ body {
 :root {
 	--hue: 240;
 
-	--background: oklch(100% 0 var(--hue));
+	--background: oklch(95% 0.01 var(--hue));
 	--foreground: oklch(40% 0.04 var(--hue));
 	--card: oklch(98% 0.005 var(--hue));
 	--inner-card: oklch(95% 0.005 var(--hue));
@@ -29,12 +30,12 @@ body {
 	--popover: var(--background);
 	--popover-foreground: var(--foreground);
 	--primary: oklch(40% 0.09 var(--hue));
-	--primary-foreground: oklch(80% 0.05 var(--hue));
+	--primary-foreground: oklch(90% 0.02 var(--hue));
 	--secondary: oklch(90% 0.03 var(--hue));
 	--secondary-foreground: oklch(30% 0.09 var(--hue));
 	--muted: oklch(96% 0.0068 var(--hue));
 	--muted-foreground: oklch(55% 0.03 var(--hue));
-	--accent: var(--secondary);
+	--accent: oklch(85% 0.03 var(--hue));
 	--accent-foreground: var(--secondary-foreground);
 	--destructive: oklch(40% 0.1212 15);
 	--destructive-foreground: oklch(80% 0.1212 15);
@@ -49,32 +50,32 @@ body {
 	--radius: 0.6rem;
 }
 
-/* .dark {
-  --background: oklch(222.2 84% 4.9%);
-  --foreground: oklch(210 40% 98%);
-  --card: oklch(222.2 84% 4.9%);
-  --card-foreground: oklch(210 40% 98%);
-  --popover: oklch(222.2 84% 4.9%);
-  --popover-foreground: oklch(210 40% 98%);
-  --primary: oklch(210 40% 98%);
-  --primary-foreground: oklch(222.2 47.4% 11.2%);
-  --secondary: oklch(217.2 32.6% 17.5%);
-  --secondary-foreground: oklch(210 40% 98%);
-  --muted: oklch(217.2 32.6% 17.5%);
-  --muted-foreground: oklch(215 20.2% 65.1%);
-  --accent: oklch(217.2 32.6% 17.5%);
-  --accent-foreground: oklch(210 40% 98%);
-  --destructive: oklch(0 62.8% 30.6%);
-  --destructive-foreground: oklch(210 40% 98%);
-  --border: oklch(217.2 32.6% 17.5%);
-  --input: oklch(217.2 32.6% 17.5%);
-  --ring: oklch(212.7 26.8% 83.9%);
-  --chart-1: oklch(220 70% 50%);
-  --chart-2: oklch(160 60% 45%);
-  --chart-3: oklch(30 80% 55%);
-  --chart-4: oklch(280 65% 60%);
-  --chart-5: oklch(340 75% 55%);
-} */
+.dark {
+	--background: oklch(30% 0.01 var(--hue));
+	--foreground: oklch(90% 0.03 var(--hue));
+	--card: oklch(98% 0.005 var(--hue));
+	--card-foreground: oklch(90% 0.01 var(--hue));
+	--popover: oklch(98% 0.005 var(--hue));
+	--popover-foreground: oklch(90% 0.01 var(--hue));
+	--primary: oklch(80% 0.5 var(--hue));
+	--primary-foreground: oklch(40% 0.09 var(--hue));
+	--secondary: oklch(40% 0.05 var(--hue));
+	--secondary-foreground: oklch(90% 0.03 var(--hue));
+	--muted: oklch(96% 0.0068 var(--hue));
+	--muted-foreground: oklch(55% 0.03 var(--hue));
+	--accent: oklch(50% 0.1 var(--hue));
+	--accent-foreground: oklch(90% 0.03 var(--hue));
+	--destructive: oklch(80% 0.3 15);
+	--destructive-foreground: oklch(90% 0.03 var(--hue));
+	--border: oklch(93% 0.01 var(--hue));
+	--input: oklch(93% 0.01 var(--hue));
+	--ring: oklch(80% 0.03 var(--hue));
+	/* --chart-1: oklch(220 70% 50%);
+	--chart-2: oklch(160 60% 45%);
+	--chart-3: oklch(30 80% 55%);
+	--chart-4: oklch(280 65% 60%);
+	--chart-5: oklch(340 75% 55%); */
+}
 
 @theme inline {
 	--color-background: var(--background);
@@ -111,8 +112,29 @@ body {
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-ring) #00000000;
+
+		::selection {
+			@apply bg-ring;
+		}
 	}
+
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+@utility shadow-neumorphic-gutter {
+	box-shadow: inset -0.5px -0.5px 2px
+		oklch(from var(--background) calc(l + 0.18 / l) c h), inset 0.5px 0.5px 2px
+		oklch(from var(--background) calc(l * 0.7) c h);
+}
+
+@utility shadow-neumorphic-button-* {
+	box-shadow:
+		inset 1px 1px 0.5px
+		oklch(from --value(--color-*) calc(l + 0.15 / l) calc(c * 0.3) h), inset -1px
+		-1px 0.5px oklch(from --value(--color-*) calc(l * 0.7) calc(c * 0.3) h),
+		1px 1px 1px oklch(from var(--background) calc(l - 0.2) c h);
 }

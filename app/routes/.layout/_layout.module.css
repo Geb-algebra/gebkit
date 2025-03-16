@@ -1,0 +1,42 @@
+.layout {
+	display: grid;
+	grid-template-columns: 128px 1fr;
+	grid-template-rows: 48px 1fr;
+	grid-template-areas:
+		"header header"
+		"sidebar main";
+}
+
+.header {
+	grid-area: header;
+	display: grid;
+	align-items: center;
+	grid-template-columns: 1fr auto auto 1fr;
+	grid-template-rows: 48px 1fr;
+	gap: 16px;
+	grid-template-areas: "title theme style about";
+}
+
+.title {
+	grid-area: title;
+}
+
+.theme {
+	grid-area: theme;
+}
+
+.style {
+	grid-area: style;
+}
+
+.about {
+	grid-area: about;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.main {
+	grid-area: main;
+}
