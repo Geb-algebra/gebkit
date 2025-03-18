@@ -1,7 +1,7 @@
 import { MoonIcon, SunIcon } from "lucide-react";
 import { Link, NavLink, Outlet, useLocation } from "react-router";
-import { Button } from "~/components/flat/button";
-import { Switch } from "~/components/flat/switch";
+import { Button } from "~/components/neumorphic/button";
+import { Switch } from "~/components/neumorphic/switch";
 import { cn } from "~/utils/css";
 import { useTheme } from "../../context";
 import styles from "../.layout/_layout.module.css";
@@ -28,7 +28,7 @@ export default function Home() {
 			>
 				<h1 className={cn("text-lg font-semibold", styles.title)}>GebKit</h1>
 				<Button variant="ghost" asChild>
-					<Link to={location.pathname.split("flat").join("neumorphic")}>Neumorphic</Link>
+					<Link to={location.pathname.split("neumorphic").join("flat")}>Flat</Link>
 				</Button>
 				<div className="flex items-center space-x-2">
 					<SunIcon size={16} />
@@ -49,7 +49,9 @@ export default function Home() {
 					styles.sidebar,
 				)}
 			>
-				<NavLink to="/flat/button">Button</NavLink>
+				<NavLink to="/neumorphic/button">Button</NavLink>
+				<NavLink to="/neumorphic/switch">Switch</NavLink>
+				<NavLink to="/neumorphic/card">Card</NavLink>
 			</nav>
 			<main className={styles.main}>
 				<Outlet />

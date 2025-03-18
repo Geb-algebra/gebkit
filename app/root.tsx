@@ -7,10 +7,10 @@ import {
 	isRouteErrorResponse,
 } from "react-router";
 
-import React from "react";
+import type React from "react";
 import type { Route } from "./+types/root";
 import "./app.css";
-import { ThemeProvider } from "./context";
+import { ThemeProvider, useTheme } from "./context";
 import { cn } from "./utils/css";
 
 export const links: Route.LinksFunction = () => [
@@ -36,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body className={cn("w-full h-screen")}>
-				{children}
+				<ThemeProvider>{children}</ThemeProvider>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
@@ -45,10 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+	const { theme } = useTheme();
 	return (
-		<ThemeProvider>
+		<div className={cn("w-full h-full bg-background text-foreground", theme === "dark" && "dark")}>
 			<Outlet />
-		</ThemeProvider>
+		</div>
 	);
 }
 

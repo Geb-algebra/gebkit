@@ -1,5 +1,5 @@
 import { cn } from "~/utils/css";
-import { Button } from "../flat/button";
+import { Button } from "../neumorphic/button";
 import styles from "./ComponentPage.module.css";
 
 export default function ComponentPage(props: {

@@ -2,7 +2,6 @@ import { BookmarkIcon, EyeIcon, InfoIcon, LinkIcon, SendIcon, Trash2Icon } from 
 import fs from "node:fs";
 import path from "node:path";
 import React from "react";
-import { Button } from "~/components/flat/button";
 import { Label } from "~/components/flat/label";
 import {
 	Select,
@@ -11,12 +10,13 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "~/components/flat/select";
-import ComponentPage from "~/components/page/ComponentPage";
+import { Button } from "~/components/neumorphic/button";
+import ComponentPage from "~/components/page/ComponentPageNeumo";
 import type { Route } from "./+types/button";
 
 export async function loader({ request }: Route.LoaderArgs) {
 	const code = await fs.promises.readFile(
-		path.join(process.cwd(), "app/components/flat/button.tsx"),
+		path.join(process.cwd(), "app/components/neumorphic/button.tsx"),
 		"utf-8",
 	);
 	return {
