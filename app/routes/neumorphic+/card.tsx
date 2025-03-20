@@ -1,13 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { Label } from "~/components/flat/label";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "~/components/flat/select";
 import { Button } from "~/components/neumorphic/button";
 import {
 	Card,
@@ -17,6 +10,13 @@ import {
 	CardHeader,
 	CardTitle,
 } from "~/components/neumorphic/card";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "~/components/neumorphic/select";
 import ComponentPage from "~/components/page/ComponentPageNeumo";
 import type { Route } from "./+types/switch";
 

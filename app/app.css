@@ -68,8 +68,8 @@ body {
 	--accent-foreground: oklch(90% 0.03 var(--hue));
 	--destructive: oklch(80% 0.3 15);
 	--destructive-foreground: oklch(90% 0.03 var(--hue));
-	--border: oklch(93% 0.01 var(--hue));
-	--input: oklch(93% 0.01 var(--hue));
+	--border: oklch(40% 0.01 var(--hue));
+	--input: oklch(40% 0.01 var(--hue));
 	--ring: oklch(80% 0.03 var(--hue));
 	/* --chart-1: oklch(220 70% 50%);
 	--chart-2: oklch(160 60% 45%);
@@ -151,6 +151,6 @@ body {
 
 @utility shadow-neumorphic-edge {
 	box-shadow:
-		inset 0px 2px 2px var(--neumo-light), inset -0px -2px 2px var(--neumo-shadow), 0px 20px
+		inset 0px 1px 1px var(--neumo-light), inset -0px -1px 1px var(--neumo-shadow), 0px 20px
 		20px -10px var(--neumo-shadow);
 }

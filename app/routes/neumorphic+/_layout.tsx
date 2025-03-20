@@ -35,6 +35,7 @@ function StyledNavLink(props: { name: string }) {
 const components = [
 	"Button",
 	"Input",
+	"Card",
 	"Textarea",
 	"Select",
 	"Switch",
