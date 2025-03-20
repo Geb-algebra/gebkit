@@ -38,7 +38,7 @@ body {
 	--accent-foreground: var(--secondary-foreground);
 	--destructive: oklch(40% 0.1212 15);
 	--destructive-foreground: oklch(80% 0.1212 15);
-	--border: oklch(93% 0.01 var(--hue));
+	--border: oklch(90% 0.01 var(--hue));
 	--input: var(--border);
 	--ring: oklch(80% 0.03 var(--hue));
 	/* --chart-1: oklch(12 76% 61%);

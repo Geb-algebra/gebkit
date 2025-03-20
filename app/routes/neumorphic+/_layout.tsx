@@ -13,6 +13,35 @@ export function meta() {
 	];
 }
 
+function StyledNavLink(props: { name: string }) {
+	const linkName = props.name.toLowerCase().replace(/ /g, "-");
+	return (
+		<NavLink to={`/neumorphic/${linkName}`}>
+			{({ isActive }) => (
+				<Button
+					variant="ghost"
+					className={cn(
+						isActive && "bg-accent shadow-neumorphic-button-pressed",
+						"w-full h-10 rounded-md grid items-center justify-start",
+					)}
+				>
+					{props.name}
+				</Button>
+			)}
+		</NavLink>
+	);
+}
+
+const components = [
+	"Button",
+	"Input",
+	"Textarea",
+	"Select",
+	"Switch",
+	"Checkbox",
+	"Navigation Menu",
+];
+
 export default function Home() {
 	const location = useLocation();
 	const { theme, setTheme } = useTheme();
@@ -44,14 +73,14 @@ export default function Home() {
 			</header>
 			<nav
 				className={cn(
-					"bg-background backdrop-blur-sm",
-					"border-r border-border/50",
+					"bg-background backdrop-blur-sm w-42 p-2",
+					"border-r border-border",
 					styles.sidebar,
 				)}
 			>
-				<NavLink to="/neumorphic/button">Button</NavLink>
-				<NavLink to="/neumorphic/switch">Switch</NavLink>
-				<NavLink to="/neumorphic/card">Card</NavLink>
+				{components.map((component) => (
+					<StyledNavLink key={component} name={component} />
+				))}
 			</nav>
 			<main className={styles.main}>
 				<Outlet />

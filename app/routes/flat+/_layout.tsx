@@ -13,6 +13,25 @@ export function meta() {
 	];
 }
 
+function StyledNavLink(props: { name: string }) {
+	const linkName = props.name.toLowerCase().replace(/ /g, "-");
+	return (
+		<NavLink
+			to={`/flat/${linkName}`}
+			className={({ isActive }) =>
+				cn(
+					isActive && "bg-accent",
+					"active:bg-accent/50 w-full h-10 rounded-md grid items-center px-4",
+				)
+			}
+		>
+			{props.name}
+		</NavLink>
+	);
+}
+
+const components = ["Button", "Input", "Textarea", "Select", "Navigation Menu"];
+
 export default function Home() {
 	const location = useLocation();
 	const { theme, setTheme } = useTheme();
@@ -44,12 +63,14 @@ export default function Home() {
 			</header>
 			<nav
 				className={cn(
-					"bg-background backdrop-blur-sm",
-					"border-r border-border/50",
+					"bg-background backdrop-blur-sm w-42 p-2",
+					"border-r border-border",
 					styles.sidebar,
 				)}
 			>
-				<NavLink to="/flat/button">Button</NavLink>
+				{components.map((component) => (
+					<StyledNavLink key={component} name={component} />
+				))}
 			</nav>
 			<main className={styles.main}>
 				<Outlet />
