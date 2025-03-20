@@ -1,10 +1,8 @@
-"use client";
-
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import * as React from "react";
 
-import { Button } from "@/registry/new-york-v4/ui/button";
+import { Button } from "~/components/flat/button";
 import { cn } from "~/utils/css";
 
 type CarouselApi = UseEmblaCarouselType[1];

@@ -1,10 +1,8 @@
-"use client";
-
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
 import { DayPicker } from "react-day-picker";
 
-import { buttonVariants } from "@/registry/new-york-v4/ui/button";
+import { buttonVariants } from "~/components/flat/button";
 import { cn } from "~/utils/css";
 
 function Calendar({

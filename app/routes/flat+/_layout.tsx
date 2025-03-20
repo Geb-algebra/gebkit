@@ -31,46 +31,44 @@ function StyledNavLink(props: { name: string }) {
 }
 
 const components = [
-	"Button",
-	"Input",
-	"Textarea",
-	"Select",
-	"Navigation Menu",
-	"Alert",
-	"Badge",
-	"Checkbox",
-	"Switch",
-	"Card",
-	"Avatar",
 	"Accordion",
-	"Dialog",
-	"Dropdown Menu",
-	"Tooltip",
+	"Alert",
 	"Aspect Ratio",
+	"Avatar",
+	"Badge",
 	"Breadcrumb",
+	"Button",
 	"Calendar",
+	"Card",
 	"Carousel",
+	"Checkbox",
 	"Collapsible",
 	"Command",
 	"Context Menu",
+	"Dialog",
 	"Drawer",
-	"Form",
+	"Dropdown Menu",
 	"Hover Card",
+	"Input",
 	"Input OTP",
 	"Menubar",
+	"Navigation Menu",
 	"Pagination",
 	"Popover",
 	"Radio Group",
-	"Resizable",
 	"Scroll Area",
+	"Select",
 	"Separator",
 	"Sheet",
 	"Skeleton",
 	"Slider",
 	"Sonner",
+	"Switch",
 	"Table",
 	"Tabs",
+	"Textarea",
 	"Toggle",
+	"Tooltip",
 ];
 
 export default function Home() {
@@ -104,7 +102,7 @@ export default function Home() {
 			</header>
 			<nav
 				className={cn(
-					"bg-background backdrop-blur-sm w-42 p-2",
+					"bg-background backdrop-blur-sm w-42 p-2 overflow-auto",
 					"border-r border-border",
 					styles.sidebar,
 				)}
@@ -113,7 +111,7 @@ export default function Home() {
 					<StyledNavLink key={component} name={component} />
 				))}
 			</nav>
-			<main className={styles.main}>
+			<main className={cn(styles.main, "overflow-auto")}>
 				<Outlet />
 			</main>
 		</div>

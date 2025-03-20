@@ -1,13 +1,12 @@
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
 import * as React from "react";
 
-import { Button, buttonVariants } from "@/registry/new-york-v4/ui/button";
+import { type Button, buttonVariants } from "~/components/flat/button";
 import { cn } from "~/utils/css";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
 	return (
 		<nav
-			role="navigation"
 			aria-label="pagination"
 			data-slot="pagination"
 			className={cn("mx-auto flex w-full justify-center", className)}
