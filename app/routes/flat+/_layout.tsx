@@ -30,7 +30,48 @@ function StyledNavLink(props: { name: string }) {
 	);
 }
 
-const components = ["Button", "Input", "Textarea", "Select", "Navigation Menu"];
+const components = [
+	"Button",
+	"Input",
+	"Textarea",
+	"Select",
+	"Navigation Menu",
+	"Alert",
+	"Badge",
+	"Checkbox",
+	"Switch",
+	"Card",
+	"Avatar",
+	"Accordion",
+	"Dialog",
+	"Dropdown Menu",
+	"Tooltip",
+	"Aspect Ratio",
+	"Breadcrumb",
+	"Calendar",
+	"Carousel",
+	"Collapsible",
+	"Command",
+	"Context Menu",
+	"Drawer",
+	"Form",
+	"Hover Card",
+	"Input OTP",
+	"Menubar",
+	"Pagination",
+	"Popover",
+	"Radio Group",
+	"Resizable",
+	"Scroll Area",
+	"Separator",
+	"Sheet",
+	"Skeleton",
+	"Slider",
+	"Sonner",
+	"Table",
+	"Tabs",
+	"Toggle",
+];
 
 export default function Home() {
 	const location = useLocation();
